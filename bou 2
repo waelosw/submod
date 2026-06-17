@@ -1,4 +1,3 @@
-```lua
 -- Loop TP Script (Delta Executor)
 
 local looping = false
@@ -52,20 +51,6 @@ titleLabel.TextSize = 14
 titleLabel.Font = Enum.Font.GothamBold
 titleLabel.Parent = titleBar
 
--- Croix rouge en haut à droite
-local closeButton = Instance.new("TextButton")
-closeButton.Size = UDim2.new(0,24,0,24)
-closeButton.Position = UDim2.new(1,-28,0,3)
-closeButton.BackgroundColor3 = Color3.fromRGB(200,0,0)
-closeButton.Text = "X"
-closeButton.TextColor3 = Color3.new(1,1,1)
-closeButton.Font = Enum.Font.GothamBold
-closeButton.TextSize = 14
-closeButton.BorderSizePixel = 0
-closeButton.Parent = titleBar
-
-Instance.new("UICorner", closeButton).CornerRadius = UDim.new(0,4)
-
 -- Bouton Loop TP
 local startButton = Instance.new("TextButton")
 startButton.Size = UDim2.new(1,-20,0,30)
@@ -94,6 +79,21 @@ stopButton.Parent = mainFrame
 
 Instance.new("UICorner", stopButton).CornerRadius = UDim.new(0,6)
 
+-- Bouton fermer
+local closeButton = Instance.new("TextButton")
+closeButton.Size = UDim2.new(0,24,0,24)
+closeButton.Position = UDim2.new(1,-28,1,-28)
+closeButton.BackgroundColor3 = Color3.fromRGB(200,0,0)
+closeButton.Text = "X"
+closeButton.TextColor3 = Color3.new(1,1,1)
+closeButton.Font = Enum.Font.GothamBold
+closeButton.TextSize = 14
+closeButton.BorderSizePixel = 0
+closeButton.Parent = mainFrame
+
+Instance.new("UICorner", closeButton).CornerRadius = UDim.new(0,4)
+
+-- Fonction TP
 local function teleportPlayer()
     local character = localPlayer.Character
     if character and character:FindFirstChild("HumanoidRootPart") then
@@ -101,6 +101,7 @@ local function teleportPlayer()
     end
 end
 
+-- Start Loop
 startButton.MouseButton1Click:Connect(function()
     if looping then return end
 
@@ -115,11 +116,13 @@ startButton.MouseButton1Click:Connect(function()
     end)
 end)
 
+-- Stop Loop
 stopButton.MouseButton1Click:Connect(function()
     looping = false
     startButton.Text = "▶️ Loop TP"
 end)
 
+-- Fermer UI
 closeButton.MouseButton1Click:Connect(function()
     looping = false
     screenGui:Destroy()
@@ -165,4 +168,3 @@ end
 titleBar.InputBegan:Connect(onInputBegan)
 titleBar.InputEnded:Connect(onInputEnded)
 UserInputService.InputChanged:Connect(onInputChanged)
-```
