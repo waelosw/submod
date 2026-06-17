@@ -89,7 +89,7 @@ closeButton.TextColor3 = Color3.new(1,1,1)
 closeButton.Font = Enum.Font.GothamBold
 closeButton.TextSize = 14
 closeButton.BorderSizePixel = 0
-closeButton.Parent = titleBar
+closeButton.Parent = mainFrame
 
 Instance.new("UICorner", closeButton).CornerRadius = UDim.new(0,4)
 
