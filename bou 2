@@ -79,17 +79,17 @@ stopButton.Parent = mainFrame
 
 Instance.new("UICorner", stopButton).CornerRadius = UDim.new(0,6)
 
--- Bouton fermer
+-- Bouton fermer (en haut à droite)
 local closeButton = Instance.new("TextButton")
 closeButton.Size = UDim2.new(0,24,0,24)
-closeButton.Position = UDim2.new(1,-28,1,-28)
+closeButton.Position = UDim2.new(1,-28,0,3)
 closeButton.BackgroundColor3 = Color3.fromRGB(200,0,0)
 closeButton.Text = "X"
 closeButton.TextColor3 = Color3.new(1,1,1)
 closeButton.Font = Enum.Font.GothamBold
 closeButton.TextSize = 14
 closeButton.BorderSizePixel = 0
-closeButton.Parent = mainFrame
+closeButton.Parent = titleBar
 
 Instance.new("UICorner", closeButton).CornerRadius = UDim.new(0,4)
 
